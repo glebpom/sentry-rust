@@ -35,7 +35,7 @@ with_rust_info = ["rustc_version", "with_client_implementation"]
 with_debug_meta = ["findshlibs", "goblin", "memmap", "with_client_implementation"]
 with_test_support = []
 with_rustls = ["reqwest/rustls-tls"]
-with_native_tls = ["reqwest/default-tls"]
+with_native_tls = ["reqwest/native-tls"]
 
 [dependencies]
 backtrace = { version = "0.3.15", optional = true }
@@ -44,7 +44,7 @@ failure = { version = "0.1.5", optional = true }
 log = { version = "0.4.6", optional = true, features = ["std"] }
 sentry-types = "0.11.0"
 env_logger = { version = "0.6.1", optional = true }
-reqwest = { version = "0.9.15", optional = true, default-features = false }
+reqwest = { version = "0.10", optional = true, default-features = false, features = ["blocking", "json"] }
 lazy_static = "1.3.0"
 regex = { version = "1.1.6", optional = true }
 error-chain = { version = "0.12.0", optional = true }
@@ -52,7 +52,7 @@ im = { version = "12.3.4", optional = true }
 libc = { version = "0.2.51", optional = true }
 hostname = { version = "0.1.5", optional = true }
 findshlibs = { version = "0.5.0", optional = true }
-rand = "0.6.5"
+rand = "0.7"
 httpdate = { version = "0.3.2", optional = true }
 curl = { version = "0.4.21", optional = true }
 serde_json = { version = "1.0.39", optional = true }
@@ -70,7 +70,7 @@ rustc_version = { version = "0.2.3", optional = true }
 [dev-dependencies]
 failure_derive = "0.1.5"
 pretty_env_logger = "0.3.0"
-actix-web = { version = "0.7.19", default-features = false }
+actix-web = { version = "2.0.0", default-features = false }
 
 [[example]]
 name = "error-chain-demo"
